@@ -5,11 +5,11 @@ public class LiskovSubstitution
     {
         static int Area(Rectangle r) => r.Width * r.Height;
         Rectangle rc = new(2, 3);
-        Console.WriteLine($"{rc} has area {Area(rc)}");
+        WriteLine($"{rc} has area {Area(rc)}");
 
         Square sq = new();
         sq.Width = 4;
-        Console.WriteLine($"{sq} has area {Area(sq)}");
+        WriteLine($"{sq} has area {Area(sq)}");
     }
 }
 

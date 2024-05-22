@@ -6,7 +6,7 @@ public static class SingleResponsibility
         var j = new Journal();
         j.AddEntry("I cried today.");
         j.AddEntry("I ate a bug.");
-        Console.WriteLine(j);
+        WriteLine(j);
 
         var filename = @"c:\temp\journal.txt";
         Persistence.SaveToFile(j, filename, true);

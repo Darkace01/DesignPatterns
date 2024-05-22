@@ -11,22 +11,22 @@ public static class OpenClosed
         // Wrong way to use Open-Closed Principle
         // BEFORE
 
-        Console.WriteLine("Green products (old):");
+        WriteLine("Green products (old):");
         foreach (var p in ProductFilter.FilterByColor(products, Color.Green))
         {
-            Console.WriteLine($" - {p.Name} is green");
+            WriteLine($" - {p.Name} is green");
         }
 
         // Better way to use Open-Closed Principle
         // AFTER
         var bf = new BetterFilter();
-        Console.WriteLine("Green products (new):");
+        WriteLine("Green products (new):");
         foreach (var p in bf.Filter(products, new ColorSpecification(Color.Green)))
         {
-            Console.WriteLine($" - {p.Name} is green");
+            WriteLine($" - {p.Name} is green");
         }
 
-        Console.WriteLine("Large blue items:");
+        WriteLine("Large blue items:");
         foreach (var p in bf.Filter(
                products,
                   new AndSpecification<Product>(
@@ -34,7 +34,7 @@ public static class OpenClosed
                                     new SizeSpecification(Size.Large)
                                        )))
         {
-            Console.WriteLine($" - {p.Name} is big and blue");
+            WriteLine($" - {p.Name} is big and blue");
         }
     }
 }
