@@ -1,18 +1,15 @@
 ﻿namespace DesignPatterns.Solid.InterfaceSegregationPrinciple;
 // Having your interfaces be small and focused on a single purpose is a good thing.
+// YAGNI - You Ain't Gonna Need It
+// Split your interfaces into smaller interfaces that are focused on a single purpose. 
+// Seperation of concerns comes to mind
 public class InterfaceSegregationPrinciple
 {
 }
-public class Document
+public class Document(string title, string content)
 {
-    public string Title { get; set; }
-    public string Content { get; set; }
-
-    public Document(string title, string content)
-    {
-        Title = title;
-        Content = content;
-    }
+    public string Title { get; set; } = title;
+    public string Content { get; set; } = content;
 }
 // Wrong way to use Interface Segregation Principle
 public interface IMachine
@@ -95,16 +92,10 @@ public interface IMultiFunctionDevice : IPrinter, IScanner
 {
 }
 
-public class MultiFunctionMachine : IMultiFunctionDevice
+public class MultiFunctionMachine(IPrinter printer, IScanner scanner) : IMultiFunctionDevice
 {
-    private IPrinter printer;
-    private IScanner scanner;
-
-    public MultiFunctionMachine(IPrinter printer, IScanner scanner)
-    {
-        this.printer = printer ?? throw new ArgumentNullException(paramName: nameof(printer));
-        this.scanner = scanner ?? throw new ArgumentNullException(paramName: nameof(scanner));
-    }
+    private IPrinter printer = printer ?? throw new ArgumentNullException(paramName: nameof(printer));
+    private IScanner scanner = scanner ?? throw new ArgumentNullException(paramName: nameof(scanner));
 
     public void Print(Document d)
     {
