@@ -1,4 +1,6 @@
 ﻿namespace DesignPatterns.Solid.OpenClosed;
+// The Open-Closed Principle states that a class should be open for extension but closed for modification.
+// The Open-Closed Principle is a way to ensure that a class is easily extensible without changing the class itself.
 public static class OpenClosed
 {
     public static void Run()

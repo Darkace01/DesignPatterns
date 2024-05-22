@@ -1,4 +1,6 @@
 ﻿namespace DesignPatterns.Solid.SignleResponsibility;
+// The Single Responsibility Principle states that a class should have only one reason to change.
+// The Single Responsibility Principle is a way to ensure that a class has only one job.
 public static class SingleResponsibility
 {
     public static void Run()

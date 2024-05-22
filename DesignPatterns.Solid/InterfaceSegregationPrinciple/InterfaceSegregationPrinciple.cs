@@ -1,4 +1,5 @@
 ﻿namespace DesignPatterns.Solid.InterfaceSegregationPrinciple;
+// Having your interfaces be small and focused on a single purpose is a good thing.
 public class InterfaceSegregationPrinciple
 {
 }

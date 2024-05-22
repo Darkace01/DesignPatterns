@@ -1,4 +1,6 @@
 ﻿namespace DesignPatterns.Solid.LiskovSubstitution;
+// The Liskov Substitution Principle states that objects of a superclass shall be replaceable with objects of its subclasses without breaking the application.
+// The Liskov Substitution Principle is a way to ensure that inheritance is used correctly.
 public class LiskovSubstitution
 {
     public static void Run()
