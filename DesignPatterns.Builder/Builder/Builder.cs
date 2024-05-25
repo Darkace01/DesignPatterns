@@ -1,8 +1,7 @@
-﻿namespace DesignPatterns.Builder.FluentBuilder;
+﻿namespace DesignPatterns.Builder.Builder;
 // Builders are a design pattern to construct complex objects
 // The Builder pattern is a design pattern that allows for the step-by-step creation of complex objects using the correct sequence of actions.
-// Fluent Builder is a variant of the Builder pattern that allows for a more fluent syntax, by chaining method calls together.
-public static class FluentBuilder
+public static class Builder
 {
     public static void Run()
     {
@@ -25,8 +24,8 @@ public static class FluentBuilder
         Console.WriteLine(sb);
 
         var builder = new HtmlBuilder("ul");
-        // Fluent Interface
-        builder.AddChild("li", "hello").AddChild("li", "world");
+        builder.AddChild("li", "hello");
+        builder.AddChild("li", "world");
         Console.WriteLine(builder);
     }
 }
@@ -34,7 +33,7 @@ public static class FluentBuilder
 public class HtmlElement
 {
     public string Name, Text;
-    public List<HtmlElement> Elements = [];
+    public List<HtmlElement> Elements = new();
     private const int indentSize = 2;
     public HtmlElement()
     {
@@ -84,11 +83,10 @@ public class HtmlBuilder
         root.Name = rootName;
     }
 
-    public HtmlBuilder AddChild(string childName, string childText)
+    public void AddChild(string childName, string childText)
     {
         var e = new HtmlElement(childName, childText);
         root.Elements.Add(e);
-        return this;
     }
 
     public override string ToString()
